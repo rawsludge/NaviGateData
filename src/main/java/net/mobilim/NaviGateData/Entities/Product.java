@@ -1,7 +1,7 @@
 package net.mobilim.NaviGateData.Entities;
-
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
+
 
 @Entity
 @Table( name = "PRODUCT")
@@ -11,15 +11,15 @@ public class Product {
     @Column(name = "ID")
     private int id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEST_ID")
     private Destination destination;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "EMBARK_PORT_ID")
     private Port embarkPort;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHIP_ID")
     private Ship ship;
 
@@ -32,7 +32,7 @@ public class Product {
     @Column(name = "MAX_OCCUPANCY")
     private Integer maxOccupancy;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEBARK_PORT_ID")
     private Port debarkPort;
 
@@ -50,7 +50,7 @@ public class Product {
 
 
     public Product() {
-
+        insertDate = new Date();
     }
 
     public int getId() {
@@ -135,10 +135,6 @@ public class Product {
 
     public Date getInsertDate() {
         return insertDate;
-    }
-
-    public void setInsertDate(Date insertDate) {
-        this.insertDate = insertDate;
     }
 
     public Date getLastUpdateDate() {

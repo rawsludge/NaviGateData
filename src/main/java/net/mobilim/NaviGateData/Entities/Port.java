@@ -1,6 +1,7 @@
 package net.mobilim.NaviGateData.Entities;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "PORT")
@@ -17,7 +18,18 @@ public class Port {
     @Column(name = "NAME")
     private String name;
 
+    @Column(name = "INSERT_DATE")
+    private Date insertDate;
+
+    @Column(name = "LAST_UPDATE_DATE")
+    private Date lastUpdateDate;
+
+    public Port() {
+        this.insertDate = new Date();
+    }
+
     public Port(String code, String name) {
+        this();
         this.code = code;
         this.name = name;
     }
@@ -42,4 +54,15 @@ public class Port {
         this.name = name;
     }
 
+    public Date getInsertDate() {
+        return insertDate;
+    }
+
+    public Date getLastUpdateDate() {
+        return lastUpdateDate;
+    }
+
+    public void setLastUpdateDate(Date lastUpdateDate) {
+        this.lastUpdateDate = lastUpdateDate;
+    }
 }
