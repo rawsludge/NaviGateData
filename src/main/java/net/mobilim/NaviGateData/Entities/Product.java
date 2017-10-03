@@ -37,7 +37,7 @@ public class Product {
     private Port debarkPort;
 
     @Column(name = "SAILING_ID")
-    private String dailingID;
+    private String sailingID;
 
     @Column(name = "CRUISE_LINE_CODE")
     private String cruiseLineCode;
@@ -117,12 +117,12 @@ public class Product {
         this.debarkPort = debarkPort;
     }
 
-    public String getDailingID() {
-        return dailingID;
+    public String getSailingID() {
+        return sailingID;
     }
 
-    public void setDailingID(String dailingID) {
-        this.dailingID = dailingID;
+    public void setSailingID(String sailingID) {
+        this.sailingID = sailingID;
     }
 
     public String getCruiseLineCode() {
