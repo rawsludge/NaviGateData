@@ -50,7 +50,8 @@ public class Product {
 
 
     public Product() {
-        insertDate = new Date();
+        this.insertDate = new Date();
+        this.lastUpdateDate = new Date();
     }
 
     public int getId() {

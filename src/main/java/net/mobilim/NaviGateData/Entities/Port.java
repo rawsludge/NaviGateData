@@ -26,6 +26,7 @@ public class Port {
 
     public Port() {
         this.insertDate = new Date();
+        this.lastUpdateDate = new Date();
     }
 
     public Port(String code, String name) {

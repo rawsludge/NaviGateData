@@ -26,6 +26,7 @@ public class Destination {
 
     public Destination() {
         this.insertDate = new Date();
+        this.lastUpdateDate = new Date();
     }
 
     public Destination(String code, String name) {

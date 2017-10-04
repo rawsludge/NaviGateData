@@ -26,6 +26,7 @@ public class Ship {
 
     public Ship() {
         this.insertDate = new Date();
+        this.lastUpdateDate = new Date();
     }
 
     public Ship(String code, String name) {
