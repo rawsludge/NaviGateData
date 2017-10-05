@@ -1,6 +1,5 @@
 package net.mobilim.NaviGateData.Repositories;
 
-import net.mobilim.NaviGateData.Entities.Port;
 import net.mobilim.NaviGateData.Entities.Ship;
 import org.junit.Test;
 import org.junit.runner.RunWith;
