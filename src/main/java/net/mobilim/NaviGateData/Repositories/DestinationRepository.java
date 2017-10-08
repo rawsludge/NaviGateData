@@ -12,6 +12,7 @@ import java.util.Date;
 @Transactional
 @Repository
 public interface DestinationRepository extends JpaRepository<Destination, Integer> {
+
     @Query("SELECT d FROM Destination d WHERE d.code = :code")
     Destination findByCode(@Param("code") String code);
 
