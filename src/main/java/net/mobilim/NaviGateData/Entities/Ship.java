@@ -5,12 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "SHIP")
-public class Ship {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private int id;
+public class Ship extends BaseEntity{
 
     @Column(name = "CODE")
     private String code;
@@ -18,25 +13,14 @@ public class Ship {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "INSERT_DATE")
-    private Date insertDate;
-
-    @Column(name = "LAST_UPDATE_DATE")
-    private Date lastUpdateDate;
-
     public Ship() {
-        this.insertDate = new Date();
-        this.lastUpdateDate = new Date();
+        super();
     }
 
     public Ship(String code, String name) {
         this();
         this.code = code;
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public String getCode() {
@@ -53,17 +37,5 @@ public class Ship {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getInsertDate() {
-        return insertDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
     }
 }
