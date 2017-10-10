@@ -1,6 +1,7 @@
 package net.mobilim.NaviGateData.Entities;
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -37,6 +38,10 @@ public class Product extends BaseEntity{
 
     @Column(name = "CRUISE_LINE_CODE")
     private String cruiseLineCode;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "PRODUCT_ID")
+    private List<Category> categories;
 
     public Product() {
         super();
@@ -112,5 +117,13 @@ public class Product extends BaseEntity{
 
     public void setCruiseLineCode(String cruiseLineCode) {
         this.cruiseLineCode = cruiseLineCode;
+    }
+
+    public List<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<Category> categories) {
+        this.categories = categories;
     }
 }

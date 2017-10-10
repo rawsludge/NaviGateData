@@ -1,6 +1,7 @@
 package net.mobilim.NaviGateData.Entities;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -33,15 +34,18 @@ public class Category extends BaseEntity {
     @JoinColumn(name = "CABIN_LOCATION_ID")
     private CabinLocation cabinLocation;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "CABIN_DECK_ID")
-    private CabinDeck cabinDeck;
+    private List<CabinDeck> cabinDeck;
 
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "CATEGORY_ID")
     private List<GuestType> guestTypes;
 
     public Category() {
+        super();
+        this.cabinDeck = new ArrayList<CabinDeck>();
+        this.guestTypes = new ArrayList<GuestType>();
     }
 
 
@@ -109,11 +113,11 @@ public class Category extends BaseEntity {
         this.cabinLocation = cabinLocation;
     }
 
-    public CabinDeck getCabinDeck() {
+    public List<CabinDeck> getCabinDeck() {
         return cabinDeck;
     }
 
-    public void setCabinDeck(CabinDeck cabinDeck) {
+    public void setCabinDeck(List<CabinDeck> cabinDeck) {
         this.cabinDeck = cabinDeck;
     }
 
