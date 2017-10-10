@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "CABIN_DEC")
+@Table(name = "CABIN_DECK")
 public class CabinDeck extends BaseEntity {
 
     @Column(name = "CODE")

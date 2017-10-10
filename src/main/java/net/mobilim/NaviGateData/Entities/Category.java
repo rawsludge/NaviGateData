@@ -30,15 +30,15 @@ public class Category extends BaseEntity {
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "CABIN_LOCATION_ID")
     private CabinLocation cabinLocation;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "CABIN_DECK_ID")
     private List<CabinDeck> cabinDeck;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "CATEGORY_ID")
     private List<GuestType> guestTypes;
 
