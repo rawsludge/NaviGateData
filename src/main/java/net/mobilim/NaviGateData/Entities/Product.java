@@ -5,11 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table( name = "PRODUCT")
-public class Product {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
-    private int id;
+public class Product extends BaseEntity{
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEST_ID")
@@ -42,24 +38,8 @@ public class Product {
     @Column(name = "CRUISE_LINE_CODE")
     private String cruiseLineCode;
 
-    @Column(name = "INSERT_DATE")
-    private Date insertDate;
-
-    @Column(name = "LAST_UPDATE_DATE")
-    private Date lastUpdateDate;
-
-
     public Product() {
-        this.insertDate = new Date();
-        this.lastUpdateDate = new Date();
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        id = id;
+        super();
     }
 
     public Destination getDestination() {
@@ -132,17 +112,5 @@ public class Product {
 
     public void setCruiseLineCode(String cruiseLineCode) {
         this.cruiseLineCode = cruiseLineCode;
-    }
-
-    public Date getInsertDate() {
-        return insertDate;
-    }
-
-    public Date getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Date lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
     }
 }

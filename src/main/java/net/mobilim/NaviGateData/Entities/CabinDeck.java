@@ -1,11 +1,12 @@
 package net.mobilim.NaviGateData.Entities;
 
-import javax.persistence.*;
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Entity
-@Table(name = "DESTINATION")
-public class Destination extends BaseEntity {
+@Table(name = "CABIN_DEC")
+public class CabinDeck extends BaseEntity {
 
     @Column(name = "CODE")
     private String code;
@@ -13,11 +14,11 @@ public class Destination extends BaseEntity {
     @Column(name = "NAME")
     private String name;
 
-    public Destination() {
+    public CabinDeck() {
         super();
     }
 
-    public Destination(String code, String name) {
+    public CabinDeck(String code, String name) {
         this();
         this.code = code;
         this.name = name;
