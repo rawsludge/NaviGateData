@@ -21,6 +21,10 @@ public class BaseEntity {
         this.lastUpdateDate = new Date();
     }
 
+    public int getId() {
+        return id;
+    }
+
     public Date getInsertDate() {
         return insertDate;
     }

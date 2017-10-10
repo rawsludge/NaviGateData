@@ -4,11 +4,13 @@ import net.mobilim.NaviGateData.Entities.Ship;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
 
@@ -17,11 +19,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 import static org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureTestDatabase.Replace.ANY;
 
-@RunWith(SpringJUnit4ClassRunner.class)
 @DataJpaTest
-@SpringBootTest(classes = {DestinationRepositoryTest.class})
-@AutoConfigureTestDatabase(replace = ANY)
+@EnableAutoConfiguration
+@RunWith(SpringRunner.class)
 @EntityScan("net.mobilim.NaviGateData.Entities")
+@SpringBootTest(classes = {DestinationRepositoryTest.class})
 public class ShipRepositoryTest {
     @Autowired
     private ShipRepository shipRepository;

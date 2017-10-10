@@ -1,41 +1,45 @@
 package net.mobilim.NaviGateData.Entities;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 
 @Entity
-public class Transportation {
-    private int id;
-    private String statusCode;
-    private String description;
-    private String ratePortCharge;
-    private String rateType;
-    private String rateCode;
-    private String rateName;
-    private BigDecimal amount;
-    private String type;
-    private BigDecimal taxFreeAmount;
-    private Integer guestMin;
-    private Integer guestMax;
-    private Timestamp insertDate;
-    private Timestamp lastUpdateDate;
+@Table(name = "TRANSPORTATION")
+public class Transportation extends BaseEntity{
 
-    @Id
-    @Column(name = "ID")
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Basic
     @Column(name = "STATUS_CODE")
+    private String statusCode;
+
+    @Column(name = "DESCRIPTION")
+    private String description;
+
+    @Column(name = "RATE_PORT_CHARGE")
+    private String ratePortCharge;
+
+    @Column(name = "RATE_TYPE")
+    private String rateType;
+
+    @Column(name = "RATE_CODE")
+    private String rateCode;
+
+    @Column(name = "RATE_NAME")
+    private String rateName;
+
+    @Column(name = "AMOUNT")
+    private BigDecimal amount;
+
+    @Column(name = "TYPE")
+    private String type;
+
+    @Column(name = "TAX_FREE_AMOUNT")
+    private BigDecimal taxFreeAmount;
+
+    @Column(name = "GUEST_MIN")
+    private Integer guestMin;
+
+    @Column(name = "GUEST_MAX")
+    private Integer guestMax;
+
     public String getStatusCode() {
         return statusCode;
     }
@@ -44,8 +48,6 @@ public class Transportation {
         this.statusCode = statusCode;
     }
 
-    @Basic
-    @Column(name = "DESCRIPTION")
     public String getDescription() {
         return description;
     }
@@ -54,8 +56,6 @@ public class Transportation {
         this.description = description;
     }
 
-    @Basic
-    @Column(name = "RATE_PORT_CHARGE")
     public String getRatePortCharge() {
         return ratePortCharge;
     }
@@ -64,8 +64,6 @@ public class Transportation {
         this.ratePortCharge = ratePortCharge;
     }
 
-    @Basic
-    @Column(name = "RATE_TYPE")
     public String getRateType() {
         return rateType;
     }
@@ -74,8 +72,6 @@ public class Transportation {
         this.rateType = rateType;
     }
 
-    @Basic
-    @Column(name = "RATE_CODE")
     public String getRateCode() {
         return rateCode;
     }
@@ -84,8 +80,6 @@ public class Transportation {
         this.rateCode = rateCode;
     }
 
-    @Basic
-    @Column(name = "RATE_NAME")
     public String getRateName() {
         return rateName;
     }
@@ -94,8 +88,6 @@ public class Transportation {
         this.rateName = rateName;
     }
 
-    @Basic
-    @Column(name = "AMOUNT")
     public BigDecimal getAmount() {
         return amount;
     }
@@ -104,8 +96,6 @@ public class Transportation {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "TYPE")
     public String getType() {
         return type;
     }
@@ -114,8 +104,6 @@ public class Transportation {
         this.type = type;
     }
 
-    @Basic
-    @Column(name = "TAX_FREE_AMOUNT")
     public BigDecimal getTaxFreeAmount() {
         return taxFreeAmount;
     }
@@ -124,8 +112,6 @@ public class Transportation {
         this.taxFreeAmount = taxFreeAmount;
     }
 
-    @Basic
-    @Column(name = "GUEST_MIN")
     public Integer getGuestMin() {
         return guestMin;
     }
@@ -134,8 +120,6 @@ public class Transportation {
         this.guestMin = guestMin;
     }
 
-    @Basic
-    @Column(name = "GUEST_MAX")
     public Integer getGuestMax() {
         return guestMax;
     }
@@ -143,25 +127,4 @@ public class Transportation {
     public void setGuestMax(Integer guestMax) {
         this.guestMax = guestMax;
     }
-
-    @Basic
-    @Column(name = "INSERT_DATE")
-    public Timestamp getInsertDate() {
-        return insertDate;
-    }
-
-    public void setInsertDate(Timestamp insertDate) {
-        this.insertDate = insertDate;
-    }
-
-    @Basic
-    @Column(name = "LAST_UPDATE_DATE")
-    public Timestamp getLastUpdateDate() {
-        return lastUpdateDate;
-    }
-
-    public void setLastUpdateDate(Timestamp lastUpdateDate) {
-        this.lastUpdateDate = lastUpdateDate;
-    }
-
 }

@@ -6,6 +6,5 @@
   <session-factory>
     <property name="connection.url">jdbc:mysql://storage:3306/navigate</property>
     <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-      <mapping class="net.mobilim.NaviGateData.Entities.Transportation"/>
   </session-factory>
 </hibernate-configuration>
