@@ -35,8 +35,8 @@ public class Category extends BaseEntity {
     private CabinLocation cabinLocation;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "CABIN_DECK_ID")
-    private List<CabinDeck> cabinDeck;
+    @JoinColumn(name = "CATEGORY_ID")
+    private List<CategoryCabinDeck> categoryCabinDecks;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "CATEGORY_ID")
@@ -44,7 +44,7 @@ public class Category extends BaseEntity {
 
     public Category() {
         super();
-        this.cabinDeck = new ArrayList<CabinDeck>();
+        this.categoryCabinDecks = new ArrayList<CategoryCabinDeck>();
         this.guestTypes = new ArrayList<GuestType>();
     }
 
@@ -113,12 +113,12 @@ public class Category extends BaseEntity {
         this.cabinLocation = cabinLocation;
     }
 
-    public List<CabinDeck> getCabinDeck() {
-        return cabinDeck;
+    public List<CategoryCabinDeck> getCategoryCabinDecks() {
+        return categoryCabinDecks;
     }
 
-    public void setCabinDeck(List<CabinDeck> cabinDeck) {
-        this.cabinDeck = cabinDeck;
+    public void setCategoryCabinDecks(List<CategoryCabinDeck> categoryCabinDecks) {
+        this.categoryCabinDecks = categoryCabinDecks;
     }
 
     public List<GuestType> getGuestTypes() {
