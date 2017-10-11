@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
 
-@Transactional(readOnly = true)
 public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("SELECT p FROM Product p WHERE p.sailingDate BETWEEN :fromDate AND :toDate")
     Product findBySailingDate(Date fromDate, Date toDate);

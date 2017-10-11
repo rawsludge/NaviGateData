@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
-@Transactional(readOnly = true)
 public interface DestinationRepository extends JpaRepository<Destination, Integer> {
 
     @Query("SELECT d FROM Destination d WHERE d.code = :code")
