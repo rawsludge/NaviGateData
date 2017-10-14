@@ -6,19 +6,22 @@ import javax.persistence.*;
 @Table(name = "GUEST_TYPE")
 public class GuestType extends BaseEntity {
 
+    @Column(name = "CODE")
+    private String code;
+
     @Column(name = "STATUS_CODE")
     private String statusCode;
 
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "CODE")
-    private String code;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "TRANSPORTATION_ID")
+    private Transportation transportation;
 
     public GuestType() {
         super();
@@ -54,5 +57,13 @@ public class GuestType extends BaseEntity {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Transportation getTransportation() {
+        return transportation;
+    }
+
+    public void setTransportation(Transportation transportation) {
+        this.transportation = transportation;
     }
 }

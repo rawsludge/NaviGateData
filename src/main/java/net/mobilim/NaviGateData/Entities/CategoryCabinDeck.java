@@ -6,11 +6,11 @@ import javax.persistence.*;
 @Table(name = "CATEGORY_CABIN_DECK")
 public class CategoryCabinDeck extends BaseEntity {
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CABIN_DECK_ID")
     private CabinDeck cabinDeck;
 

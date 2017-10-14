@@ -30,15 +30,15 @@ public class Category extends BaseEntity {
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CABIN_LOCATION_ID")
     private CabinLocation cabinLocation;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CATEGORY_ID")
     private List<CategoryCabinDeck> categoryCabinDecks;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CATEGORY_ID")
     private List<GuestType> guestTypes;
 
@@ -47,7 +47,6 @@ public class Category extends BaseEntity {
         this.categoryCabinDecks = new ArrayList<CategoryCabinDeck>();
         this.guestTypes = new ArrayList<GuestType>();
     }
-
 
     public String getCode() {
         return code;

@@ -40,7 +40,7 @@ public class Product extends BaseEntity{
     @Column(name = "CRUISE_LINE_CODE")
     private String cruiseLineCode;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     private List<Category> categories;
 
