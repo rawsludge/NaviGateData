@@ -1,11 +1,15 @@
 package net.mobilim.NaviGateData.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "CATEGORY_CABIN_DECK")
 public class CategoryCabinDeck extends BaseEntity {
 
+
+    @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "CATEGORY_ID")
     private Category category;
@@ -18,9 +22,11 @@ public class CategoryCabinDeck extends BaseEntity {
         super();
     }
 
+
     public Category getCategory() {
         return category;
     }
+
 
     public void setCategory(Category category) {
         this.category = category;

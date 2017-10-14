@@ -1,5 +1,7 @@
 package net.mobilim.NaviGateData.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +28,7 @@ public class Category extends BaseEntity {
     @Column(name = "CABIN_SUB_TYPE_DESC")
     private String cabinSubTypeDesc;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PRODUCT_ID")
     private Product product;

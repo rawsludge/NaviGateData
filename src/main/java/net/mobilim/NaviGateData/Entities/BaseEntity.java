@@ -1,5 +1,7 @@
 package net.mobilim.NaviGateData.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -10,9 +12,11 @@ public class BaseEntity {
     @Column(name = "ID")
     private int id;
 
+    @JsonIgnore
     @Column(name = "INSERT_DATE")
     private Date insertDate;
 
+    @JsonIgnore
     @Column(name = "LAST_UPDATE_DATE")
     private Date lastUpdateDate;
 
