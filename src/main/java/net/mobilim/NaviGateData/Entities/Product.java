@@ -1,5 +1,6 @@
 package net.mobilim.NaviGateData.Entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -46,6 +47,11 @@ public class Product extends BaseEntity{
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
     private List<Category> categories;
+
+    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "ITINERARY_ID")
+    private Itinerary itinerary;
 
     public Product() {
         super();
@@ -130,5 +136,13 @@ public class Product extends BaseEntity{
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    public Itinerary getItinerary() {
+        return itinerary;
+    }
+
+    public void setItinerary(Itinerary itinerary) {
+        this.itinerary = itinerary;
     }
 }
