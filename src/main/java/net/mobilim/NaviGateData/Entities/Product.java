@@ -17,9 +17,9 @@ public class Product extends BaseEntity{
     @JoinColumn(name = "DEST_ID")
     private Destination destination;
 
-    @OneToOne(fetch = FetchType.LAZY)
+/*    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "EMBARK_PORT_ID")
-    private Port embarkPort;
+    private Port embarkPort;*/
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "SHIP_ID")
@@ -34,9 +34,9 @@ public class Product extends BaseEntity{
     @Column(name = "MAX_OCCUPANCY")
     private Integer maxOccupancy;
 
-    @OneToOne(fetch = FetchType.LAZY)
+/*    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEBARK_PORT_ID")
-    private Port debarkPort;
+    private Port debarkPort;*/
 
     @Column(name = "SAILING_ID")
     private String sailingID;
@@ -66,13 +66,13 @@ public class Product extends BaseEntity{
         this.destination = destination;
     }
 
-    public Port getEmbarkPort() {
+/*    public Port getEmbarkPort() {
         return embarkPort;
     }
 
     public void setEmbarkPort(Port embarkPort) {
         this.embarkPort = embarkPort;
-    }
+    }*/
 
     public Ship getShip() {
         return ship;
@@ -106,13 +106,13 @@ public class Product extends BaseEntity{
         this.maxOccupancy = maxOccupancy;
     }
 
-    public Port getDebarkPort() {
+/*    public Port getDebarkPort() {
         return debarkPort;
     }
 
     public void setDebarkPort(Port debarkPort) {
         this.debarkPort = debarkPort;
-    }
+    }*/
 
     public String getSailingID() {
         return sailingID;

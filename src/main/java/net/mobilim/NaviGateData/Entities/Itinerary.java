@@ -16,9 +16,13 @@ public class Itinerary extends BaseEntity {
     @Column(name = "PORT_COUNT")
     private Integer portCount;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "ITINERARY_ID")
     private List<Product> products;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "ITINERARY_ID")
+    private List<Port> ports;
 
     public Itinerary() {
         super();
@@ -60,5 +64,13 @@ public class Itinerary extends BaseEntity {
 
     public void setPortCount(Integer portCount) {
         this.portCount = portCount;
+    }
+
+    public List<Port> getPorts() {
+        return ports;
+    }
+
+    public void setPorts(List<Port> ports) {
+        this.ports = ports;
     }
 }
