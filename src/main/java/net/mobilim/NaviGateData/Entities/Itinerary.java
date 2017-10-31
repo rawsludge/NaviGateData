@@ -1,5 +1,8 @@
 package net.mobilim.NaviGateData.Entities;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -18,10 +21,12 @@ public class Itinerary extends BaseEntity {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "ITINERARY_ID")
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Product> products;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "ITINERARY_ID")
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Port> ports;
 
     public Itinerary() {

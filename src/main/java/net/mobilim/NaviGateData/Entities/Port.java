@@ -1,8 +1,10 @@
 package net.mobilim.NaviGateData.Entities;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.sql.Time;
 import java.util.Date;
 
 @Entity
@@ -19,16 +21,19 @@ public class Port extends BaseEntity {
     private Date date;
 
     @Column(name = "ARRIVE_TIME")
+    @JsonFormat(pattern = "HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private Date arrive;
 
     @Column(name = "BOARDING_TIME")
+    @JsonFormat(pattern = "HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private Date boarding;
 
     @Column(name = "DEPART_TIME")
+    @JsonFormat(pattern = "HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private Date depart;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ITINERARY_ID")
     private Itinerary itinerary;
 

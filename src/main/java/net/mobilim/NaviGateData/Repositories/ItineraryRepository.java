@@ -15,8 +15,24 @@ public interface ItineraryRepository extends PagingAndSortingRepository<Itinerar
     @Query("SELECT it FROM Itinerary it WHERE it.code = :code")
     Itinerary findByCode(@Param("code") String code);
 
-    @Query( value = "SELECT it FROM Itinerary it JOIN FETCH it.products p WHERE p.itinerary=it AND p.sailingDate BETWEEN :fromDate AND :toDate AND p.duration BETWEEN :minDuration AND :maxDuration AND p.ship.code LIKE  :shipCode AND p.destination.code LIKE :destCode ORDER BY p.sailingDate ASC",
-    countQuery = "SELECT COUNT(it) FROM Itinerary it JOIN it.products p WHERE p.itinerary=it AND p.sailingDate BETWEEN :fromDate AND :toDate AND p.duration BETWEEN :minDuration AND :maxDuration AND p.ship.code LIKE  :shipCode AND p.destination.code LIKE :destCode ORDER BY p.sailingDate ASC")
+    @Query( value =
+            "SELECT it FROM Itinerary it " +
+                "JOIN FETCH it.products p " +
+            "WHERE " +
+                    "p.sailingDate BETWEEN :fromDate AND :toDate " +
+                    "AND p.duration BETWEEN :minDuration AND :maxDuration " +
+                    "AND p.ship.code LIKE  :shipCode " +
+                    "AND p.destination.code LIKE :destCode " +
+            "ORDER BY p.sailingDate ASC",
+    countQuery =
+            "SELECT COUNT(it) FROM Itinerary it " +
+                    "JOIN it.products p " +
+            "WHERE " +
+                    "p.sailingDate BETWEEN :fromDate AND :toDate " +
+                    "AND p.duration BETWEEN :minDuration AND :maxDuration " +
+                    "AND p.ship.code LIKE  :shipCode " +
+                    "AND p.destination.code LIKE :destCode " +
+            "ORDER BY p.sailingDate ASC")
     Page<Itinerary> findByProducts( @Param("fromDate") Date fromDate,
                                     @Param("toDate") Date toDate,
                                     @Param("minDuration") Integer minDuration,

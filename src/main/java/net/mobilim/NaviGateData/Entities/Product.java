@@ -2,6 +2,8 @@ package net.mobilim.NaviGateData.Entities;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -46,6 +48,7 @@ public class Product extends BaseEntity{
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "PRODUCT_ID")
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Category> categories;
 
     @JsonIgnore
