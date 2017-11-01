@@ -56,6 +56,11 @@ public class Product extends BaseEntity{
     @JoinColumn(name = "ITINERARY_ID")
     private Itinerary itinerary;
 
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "PRODUCT_ID")
+    @Fetch(value = FetchMode.SUBSELECT)
+    private List<Port> ports;
+
     public Product() {
         super();
         this.categories = new ArrayList<Category>();
@@ -147,5 +152,13 @@ public class Product extends BaseEntity{
 
     public void setItinerary(Itinerary itinerary) {
         this.itinerary = itinerary;
+    }
+
+    public List<Port> getPorts() {
+        return ports;
+    }
+
+    public void setPorts(List<Port> ports) {
+        this.ports = ports;
     }
 }

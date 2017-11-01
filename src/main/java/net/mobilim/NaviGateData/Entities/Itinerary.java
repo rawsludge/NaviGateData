@@ -24,11 +24,6 @@ public class Itinerary extends BaseEntity {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Product> products;
 
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinColumn(name = "ITINERARY_ID")
-    @Fetch(value = FetchMode.SUBSELECT)
-    private List<Port> ports;
-
     public Itinerary() {
         super();
     }
@@ -69,13 +64,5 @@ public class Itinerary extends BaseEntity {
 
     public void setPortCount(Integer portCount) {
         this.portCount = portCount;
-    }
-
-    public List<Port> getPorts() {
-        return ports;
-    }
-
-    public void setPorts(List<Port> ports) {
-        this.ports = ports;
     }
 }

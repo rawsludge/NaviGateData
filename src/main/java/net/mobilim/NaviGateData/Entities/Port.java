@@ -34,8 +34,8 @@ public class Port extends BaseEntity {
 
     @JsonIgnore
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ITINERARY_ID")
-    private Itinerary itinerary;
+    @JoinColumn(name = "PRODUCT_ID")
+    private Product product;
 
     public Port() {
         super();
@@ -95,11 +95,11 @@ public class Port extends BaseEntity {
         this.depart = depart;
     }
 
-    public Itinerary getItinerary() {
-        return itinerary;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setItinerary(Itinerary itinerary) {
-        this.itinerary = itinerary;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
